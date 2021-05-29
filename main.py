@@ -10,8 +10,6 @@ def ticker(pair):
     r_json = r.json()
     if len(r_json['error']) == 0:
         return r_json['result'][pair.upper()]
-    else:
-        return r_json['error']
 
 
 def insert_eth():
