@@ -87,7 +87,8 @@ sudo mysql -p
     ```
     ```python
     from models import *
-    Base.metadata.create_all()
+    Base.metadata.create_all(engine)
+    exit()
     ```
 
 ## Usage
@@ -100,6 +101,11 @@ sudo mysql -p
 OR
 
 * You can schedule it as a cronjob to run at a specific time / cadence
-    ```sh
-
-    ```
+```sh
+sudo crontab -e
+```
+* Modify your crontab to include an entry similar to below (runs every minute):
+```
+* * * * * cd /home/zac/crypto_tracker && /home/zac/crypto_tracker/venv/bin/python /home/zac/crypto_tracker/main.py
+```
+* see [Crontab.Guru](https://crontab.guru/) to make your own schedule
